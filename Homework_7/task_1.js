@@ -35,7 +35,9 @@ console.log(capitalizeSnakeCase("I am super engineer"));
 //   - Например fibanacci(8) //21
 
 function fibanacci(number) {
-  let a = 1;
+  if (n === 1)
+  if (n === 2)
+  let a = 1; <<<<<<
   let b = 1;
   for (let i = 3; i <= number; i++) [a, b] = [b, a + b];
   return b;
