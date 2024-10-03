@@ -16,7 +16,9 @@ function findMissingNumber(array) {
       missingValues.push(i);
     }
   }
-  return missingValues.length > 0 ? missingValues : "No missing values";
+  return missingValues.length > 0
+    ? missingValues.join(" ")
+    : "No missing values";
 }
 
 //Solution 2:
@@ -39,7 +41,9 @@ function findMissingNumberByReduce(array) {
     []
   );
 
-  return missingValues.length > 0 ? missingValues : "No missing values";
+  return missingValues.length > 0
+    ? missingValues.join(" ")
+    : "No missing values";
 }
 
 const arr = [5, 2, 7, 8, 8, 10, 1, 6];
