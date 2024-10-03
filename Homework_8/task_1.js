@@ -6,7 +6,7 @@ function findMultiples(array, number) {
   array.forEach((element) => {
     if (element % number === 0) newArr.push(element);
   });
-  return newArr.join(", ");
+  return newArr.join("");
 }
 
 console.log("Hw_1:");
