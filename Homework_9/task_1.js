@@ -20,15 +20,13 @@ console.log(getFourLetterValue(character));
 // 3. Создать массив из ключей и значений объекта character, перебрать массив циклом for.
 //    На каждой итерации вывести пары ключ-значнение в виде `key = ${key}, value = ${value}`
 function getKeyValue(obj) {
-  const result = [];
-  for (const key in obj) {
-    result.push(`key = ${key}, value = ${obj[key]}`);
-  }
-  return result.join("\n");
+  Object.entries(obj).forEach(([key, value]) =>
+    console.log(`key = ${key}, value = ${value}`)
+  );
 }
 
 console.log("\nHw_3:");
-console.log(getKeyValue(character));
+getKeyValue(character);
 
 // 4. Проверить, есть ли в объекте ключ salary, результат вывести в консоль
 //    (Реализовать 2мя способами: через оператор in и Object.hasOwn())
