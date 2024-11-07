@@ -33,7 +33,7 @@ class ItemStorage<T extends { id: number }> {
     this.items = initialItems || [];
   }
 
-  generateId(): number {
+  private generateId(): number {
     return this.items.length > 0 ? this.items[this.items.length - 1].id + 1 : 1;
   }
 
