@@ -27,6 +27,7 @@ const anotherQa = {
 
 console.log("\nHw_2:");
 console.log(qa.getInfo.bind(anotherQa)("Hi"));
+// console.log(qa.getInfo.bind(anotherQa, "Hi")());
 console.log(qa.getInfo.call(anotherQa, "Hi"));
 console.log(qa.getInfo.apply(anotherQa, ["Hi"]));
 
