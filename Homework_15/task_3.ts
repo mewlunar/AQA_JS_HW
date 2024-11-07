@@ -29,41 +29,42 @@
 class ItemStorage<T extends { id: number }> {
   private items: T[] = [];
 
-  constructor(initialItems?: T[]) {
-    this.items = initialItems || [];
+  constructor(...entities: T[]) {
+    this.items.push(...entities);
   }
 
   private generateId(): number {
     return this.items.length > 0 ? this.items[this.items.length - 1].id + 1 : 1;
   }
 
-  add(item: T | Omit<T, "id">): void {
+  public add(item: T | Omit<T, "id">): void {
     const newItem = "id" in item ? item : { id: this.generateId(), ...item };
     this.items.push(newItem as T);
   }
 
-  update(updatedFields: Partial<T> & { id: number }): boolean {
-    const item = this.items.find((item) => item.id === updatedFields.id);
-    if (!item) return false;
-    Object.assign(item, updatedFields);
-    return true;
+  public update(item: Partial<T> & Pick<T, "id">) {
+    const index = this.getIndexById(item.id);
+    if (index === -1) throw new Error(`Id ${item.id} not found`);
+
+    this.items[index] = { ...this.items[index], ...item };
   }
 
-  remove(id: number): boolean {
-    const index = this.items.findIndex((item) => item.id === id);
-    if (index === -1) {
-      return false;
-    }
+  public remove(id: number) {
+    const index = this.getIndexById(id);
+    if (index === -1) throw new Error(`Id ${id} not found`);
     this.items.splice(index, 1);
-    return true;
   }
 
-  getById(id: number): T | undefined {
+  public getById(id: number): T | undefined {
     return this.items.find((item) => item.id === id);
   }
 
-  getAll(): T[] {
+  public getAll(): T[] {
     return this.items;
+  }
+
+  private getIndexById(id: number) {
+    return this.items.findIndex((item) => item.id === id);
   }
 }
 
