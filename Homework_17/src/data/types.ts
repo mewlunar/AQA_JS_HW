@@ -13,3 +13,20 @@ export enum PIZZA_SIZE {
   MEDIUM = 1,
   LARGE = 1.5
 }
+
+
+export enum PIZZA_NAMES {
+  MARGHERITA = 'Margherita',
+  CARBONARA = 'Carbonara',
+  PEPPERONI = 'Pepperoni',
+  HAWAIIAN = 'Hawaiian',
+  MEAT = 'Meat',
+  CHEESE = 'Cheese'
+}
+
+export interface IPizzaReceipt {
+  toppings: string[];
+  prices: {
+    medium: number;
+  };
+}

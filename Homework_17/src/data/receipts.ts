@@ -1,20 +1,13 @@
-export enum PIZZA_NAMES {
-  MARGHERITA = 'Margherita',
-  CARBONARA = 'Carbonara',
-  PEPPERONI = 'Pepperoni',
-  HAWAIIAN = 'Hawaiian',
-  MEAT = 'Meat',
-  CHEESE = 'Cheese'
-}
+import{PIZZA_NAMES, IPizzaReceipt} from './types';
 
-export const pizzaReceipts = {
-  Margherita: {
+export const pizzaReceipts: Record<PIZZA_NAMES, IPizzaReceipt> = {
+  [PIZZA_NAMES.MARGHERITA]: {
     toppings: ['mozzarella', 'tomato'],
     prices: {
       medium: 779
     }
   },
-  Carbonara: {
+  [PIZZA_NAMES.CARBONARA]: {
     toppings: [
       'bacon',
       'cheddar',
@@ -27,25 +20,25 @@ export const pizzaReceipts = {
       medium: 989
     }
   },
-  Pepperoni: {
+  [PIZZA_NAMES.PEPPERONI]: {
     toppings: ['pepperoni', 'mozzarella', 'tomato'],
     prices: {
       medium: 789
     }
   },
-  Hawaiian: {
+  [PIZZA_NAMES.HAWAIIAN]: {
     toppings: ['chicken', 'mozzarella', 'pineapples'],
     prices: {
       medium: 809
     }
   },
-  Meat: {
+  [PIZZA_NAMES.MEAT]: {
     toppings: ['chicken', 'beef', 'pepperoni', 'mozzarella'],
     prices: {
       medium: 889
     }
   },
-  Cheese: {
+  [PIZZA_NAMES.CHEESE]: {
     toppings: ['cheddar', 'parmesan ', 'mozzarella'],
     prices: {
       medium: 599

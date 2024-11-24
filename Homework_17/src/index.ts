@@ -1,6 +1,6 @@
 import { Pizzeria } from './pizzeria/pizzeria';
 import { DOUGH_TYPE, PIZZA_SIZE } from './data/types';
-import { PIZZA_NAMES } from './data/receipts';
+import { PIZZA_NAMES } from './data/types';
 
 const pizzeria = new Pizzeria(
   'Filipp’s Pizza',
@@ -37,7 +37,7 @@ order_2.addPizza(PIZZA_NAMES.MEAT, DOUGH_TYPE.THIN_DOUGH, PIZZA_SIZE.LARGE, [
 console.log(order_2.getMeals());
 console.log(order_2.getFullPrice());
 
-order_2.removeFromOrder(PIZZA_NAMES.CHEESE);
+order_2.removeFromOrder(PIZZA_NAMES.MARGHERITA);
 
 console.log(order_2.getMeals());
 console.log(order_2.getFullPrice());

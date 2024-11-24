@@ -2,15 +2,19 @@ import { Order } from '../order/order';
 import { IMeal } from '../data/types';
 import { ERROR_MESSAGES } from '../data/messages';
 
-export class Pizzeria {
-  ordersArray: Order[] = [];
+ export  class Pizzeria {
+  private ordersArray: Order[] = [];
   private lastOrderId: number = 0;
 
   constructor(
-    public name: string,
-    public address: string,
-    public workingHours: string
+    private name: string,
+    private address: string,
+    private workingHours: string
   ) {}
+
+  public getDescription(): string {
+    return `${this.name} is located at ${this.address} and operates during ${this.workingHours}.`;
+  }
 
   public createOrder(orderDetails: IMeal[]): Order {
     const orderNumber = this.setNextOrderId();
